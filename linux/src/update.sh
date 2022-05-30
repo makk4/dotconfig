@@ -33,18 +33,18 @@ sysup() {
 devup() {
   # rust
   rust_installed="$(which rustup)"
-  if [[ -n $rust_installed ]]
+  if [[ -n $rust_installed ]]; then
     echo "update rust..."
     rustup update
   fi
   cargo_installed="$(which cargo)"
-  if [[ -n installed ]]
+  if [[ -n installed ]]; then
     echo "upda$cargo_te cargo..."
     cargo update
   fi
   # pip
   pip_installed="$(which pip)"
-  if [[ -n $pip_installed ]]
+  if [[ -n $pip_installed ]]; then
     echo "update pip..."
     read "PIP?Continue update pip packages? [y/n]?"
     if [ $PIP = "y" ]; then
@@ -54,7 +54,7 @@ devup() {
   fi
   # npm
   npm_installed="$(which npm)"
-  if [[ -n $npm_installed ]]
+  if [[ -n $npm_installed ]]; then
     echo "update npm packages..."
     NPMUP=$(npm outdated)
     if [ "$NPMUP" != "" ]; then
@@ -66,7 +66,7 @@ devup() {
 plugup() {
   # oh my zsh
   omz_installed="$(which omz)"
-  if [[ -n $omz_installed ]]
+  if [[ -n $omz_installed ]]; then
     omz update
   fi
   # tmux tpm

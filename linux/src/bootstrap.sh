@@ -1,6 +1,7 @@
 #!/bin/bash
+GITSOURCE="$1"
 
-git clone --single-branch --branch ubuntu --separate-git-dir=$HOME/.dotfiles git@github.com:name/dotfiles.git tmpdotfiles
+git clone --single-branch --branch ubuntu --separate-git-dir=$HOME/.dotfiles ${GITSOURCE} tmpdotfiles
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 

@@ -2,7 +2,7 @@
 
 Sync your personal config files with git.
 
-##### Install
+### Install
 
 ```bash
 git clone git@github.com:makk4/dotconfig.git
@@ -22,7 +22,7 @@ install_windows.ps1
 
 
 
-##### Use
+### Use
 
 Add a file
 
