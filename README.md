@@ -2,6 +2,21 @@
 
 Sync your personal config files with git.
 
+```bash
+       __      __  _____ __
+  ____/ /___  / /_/ __(_) /__  _____
+ / __  / __ \/ __/ /_/ / / _ \/ ___/
+/ /_/ / /_/ / /_/ __/ / /  __(__  )
+\__,_/\____/\__/_/ /_/_/\___/____/
+
+Usage: dot <command> <option>
+
+Commands:
+backup      Backup files
+sync        Sync dotflies
+update      Update system
+```
+
 ### Install
 
 ```bash
