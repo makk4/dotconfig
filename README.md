@@ -1,5 +1,36 @@
 # Dot Config
 
+Sync your personal config files with git.
+
+##### Install
+
+```bash
+git clone git@github.com:makk4/dotconfig.git
+```
+
+Ubuntu or Ubuntu WSL
+
+```
+./install_linux.sh
+```
+
+Windows 10/11
+
+```
+install_windows.ps1
+```
+
+
+
+##### Use
+
+Add a file
+
+```bash
+dotfiles add .vimrc
+dotconfig sync
+```
+
 Pull or push dotfiles
 
 ```bash
