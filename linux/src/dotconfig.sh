@@ -19,7 +19,6 @@ else
   echo "Usage: dot <command> <option>"
   echo ""
   echo "Commands:"
-  echo "backup      Backup files"
   echo "sync        Sync dotflies"
   echo "update      Update system"
 fi
