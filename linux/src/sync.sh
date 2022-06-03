@@ -32,20 +32,29 @@ push() {
 #                            MAIN                                     #
 #######################################################################
 
-# check if WSL or Native Unix
-if grep -q Microsoft /proc/version; then
-  echo "Linux on Windows"
-  SYSTEM="wsl"
+source ~/.zshrc
+
+# check if OpenWrt
+if grep -q OpenWrt /proc/version; then
+    DISTRO="openwrt"
+    INSPATH="/usr/bin/"
+    SYSTEM="turrios"
 else
-  echo "native Linux"
-  SYSTEM="native"
+  # check if WSL or Native Unix
+  if grep -q Microsoft /proc/version; then
+    echo "Linux on Windows"
+    SYSTEM="wsl"
+  else
+    echo "native Linux"
+    SYSTEM="native"
+  fi
 fi
 
 uname -a
 
 dotconfig diff --quiet && dotconfig diff --cached --quiet
 if ! [ $? -eq 0 ]; then
-  echo "$bold_color${fg[blue]}commit dotfiles...$reset_color"
+  echo "commit dotfiles..."
   dotfiles commit -S -am "sync"
 fi
 

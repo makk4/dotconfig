@@ -9,7 +9,7 @@ Sync your personal config files with git.
 / /_/ / /_/ / /_/ __/ / /  __(__  )
 \__,_/\____/\__/_/ /_/_/\___/____/
 
-Usage: dot <command> <option>
+Usage: dotconfig <command> <option>
 
 Commands:
 backup      Backup files
@@ -81,6 +81,9 @@ Supported Systems:
 - Ubuntu
 - Ubuntu WSL on Windows
 - Windows
+- Openwrt
+- TurrisOS
+- RasperryPiOS
 
 Supported Package Management Systems:
 

@@ -22,7 +22,7 @@ function Intro
 
 function Help
 {
-    Write-Host "Usage: dot <command> <option>"
+    Write-Host "Usage: dotconfig <command> <option>"
     Write-Host ""
     Write-Host "Commands:"
     Write-Host ""

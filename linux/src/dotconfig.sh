@@ -16,9 +16,10 @@ if [ ! -z "$1" ]; then
     source "$HOME/.scripts/src/update.sh" $2
   fi
 else
-  echo "Usage: dot <command> <option>"
+  echo "Usage: dotconfig <command> <option>"
   echo ""
   echo "Commands:"
+  echo "help        Show this screen"
   echo "sync        Sync dotflies"
   echo "update      Update system"
 fi

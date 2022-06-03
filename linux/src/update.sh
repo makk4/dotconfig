@@ -85,19 +85,33 @@ plugup() {
   cd
 }
 
+turris_up() {
+  echo -e "pkgupdate..."
+  pkgupdate
+  echo -e "finished..."
+}
+
 #######################################################################
 #                             MAIN                                    #
 #######################################################################
 
-source ~/.zshrc                        
+source ~/.zshrc
 
-# check if WSL or Native Unix
-if grep -q Microsoft /proc/version; then
-  echo "Linux on Windows"
-  DISTRO="ubuntu"
-  SYSTEM="wsl"
+# check if OpenWrt
+if grep -q OpenWrt /proc/version; then
+    DISTRO="openwrt"
+    INSPATH="/usr/bin/"
+    SYSTEM="turrios"
 else
-  echo "native Linux"
+  DISTRO="ubuntu"
+  # check if WSL or Native Unix
+  if grep -q Microsoft /proc/version; then
+    echo "Linux on Windows"
+    SYSTEM="wsl"
+  else
+    echo "native Linux"
+    SYSTEM="native"
+  fi
 fi
 
 uname -a
@@ -113,15 +127,19 @@ fi
 
 if [ $SYS_UPGRADE = "true" ]; then
   echo "sysup"
-  sysup
+  if [ $DISTRO = "ubuntu" ]; then
+    sysup
+  elif [ $DISTRO = "openwrt" ] && [ $SYSTEM = "turrisos" ]; then
+    turris_up
+  fi
 fi
 
-if [ $DEV_UPGRADE = "true" ]; then
+if [ $DEV_UPGRADE = "true" ] && [ $DISTRO = "ubuntu" ]; then
   echo "devup"
   devup
 fi
 
-if [ $PLUG_UPGRADE = "true" ]; then
+if [ $PLUG_UPGRADE = "true" ] && [ $DISTRO = "ubuntu" ]; then
   echo "plugup"
   plugup
 fi
