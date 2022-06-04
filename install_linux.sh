@@ -1,8 +1,7 @@
 #!/bin/bash
 
 echo "installing scripts"
-./linux/src/install.sh
-
+./linux/src/install.sh fresh
 
 read -p "Enter git address from an exiting git repository: " gitsource
 ./linux/src/bootstrap.sh "$gitsource"

@@ -1,7 +1,7 @@
 #!/bin/zsh
 DISTRO="$2"
 SYSTEM="$3"
-INSPATH="/home/$USER/.scripts"
+
 SYS_UPGRADE="false"
 DEV_UPGRADE="false"
 PLUG_UPGRADE="false"
@@ -107,10 +107,6 @@ dotconfig_up() {
 #######################################################################
 
 source ~/.zshrc
-
-if [ $DISTRO = "openwrt" ]; then
-  INSPATH="/usr/bin/"
-fi
 
 uname -a
 
