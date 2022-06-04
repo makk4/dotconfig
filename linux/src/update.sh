@@ -8,7 +8,7 @@ PLUG_UPGRADE="false"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-sysup() {
+ubuntu_up() {
   echo "update apt..."
   sudo apt update && sudo apt upgrade -y
   echo "autoremove..."
@@ -27,10 +27,21 @@ sysup() {
       flatpak update
     fi
   fi
-
 }
 
-devup() {
+turrisos_up() {
+  echo -e "pkgupdate..."
+  pkgupdate
+  echo -e "finished..."
+}
+
+raspberrypios_up() {
+  echo -e "pkg upgrade..."
+  pkg upgrade
+  echo -e "finished..."
+}
+
+dev_up() {
   # rust
   rust_installed="$(which rustup)"
   if [[ -n $rust_installed ]]; then
@@ -63,7 +74,7 @@ devup() {
   fi
 }
 
-plugup() {
+plug_up() {
   # oh my zsh
   omz_installed="$(which omz)"
   if [[ -n $omz_installed ]]; then
@@ -85,16 +96,10 @@ plugup() {
   cd
 }
 
-turris_up() {
-  echo -e "pkgupdate..."
-  pkgupdate
-  echo -e "finished..."
-}
-
-raspberry_pi_os_up() {
-  echo -e "pkg upgrade..."
-  pkg upgrade
-  echo -e "finished..."
+dotconfig_up() {
+  echo "update dotconfig..."
+  git clone git@github.com:makk4/dotfiles.git
+  ./install.sh
 }
 
 #######################################################################
@@ -119,28 +124,26 @@ fi
 if [ $SYS_UPGRADE = "true" ]; then
   echo "sysup"
   if [ $DISTRO = "ubuntu" ]; then
-    sysup
+    ubuntu_up
   elif [ $DISTRO = "openwrt" ] && [ $SYSTEM = "turrisos" ]; then
-    turris_up
+    turrisos_up
   fi
   elif [ $DISTRO = "termux" ]; then
-    raspberry_pi_os_up
+    raspberrypios_up
   fi
 fi
 
 if [ $DEV_UPGRADE = "true" ] && [ $DISTRO = "ubuntu" ]; then
   echo "devup"
-  devup
+  dev_up
 fi
 
 if [ $PLUG_UPGRADE = "true" ] && [ $DISTRO = "ubuntu" ]; then
   echo "plugup"
-  plugup
+  plug_up
 fi
 
-echo "update dotconfig..."
-git clone git@github.com:makk4/dotfiles.git
-./install.sh
+dotconfig_up
 
 echo "finished update"
 
