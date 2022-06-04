@@ -91,6 +91,12 @@ turris_up() {
   echo -e "finished..."
 }
 
+raspberry_pi_os_up() {
+  echo -e "pkg upgrade..."
+  pkg upgrade
+  echo -e "finished..."
+}
+
 #######################################################################
 #                             MAIN                                    #
 #######################################################################
@@ -99,17 +105,23 @@ source ~/.zshrc
 
 # check if OpenWrt
 if grep -q OpenWrt /proc/version; then
-    DISTRO="openwrt"
     INSPATH="/usr/bin/"
+    DISTRO="openwrt"
     SYSTEM="turrios"
 else
-  DISTRO="ubuntu"
+  if command -v termux-setup-storage; then  
+    echo "Termux"
+    DISTRO="termux"
+    SYSTEM="android"
+  fi
   # check if WSL or Native Unix
-  if grep -q Microsoft /proc/version; then
+  elif grep -q Microsoft /proc/version; then
     echo "Linux on Windows"
+    DISTRO="ubuntu"
     SYSTEM="wsl"
   else
     echo "native Linux"
+    DISTRO="ubuntu"
     SYSTEM="native"
   fi
 fi
@@ -131,6 +143,9 @@ if [ $SYS_UPGRADE = "true" ]; then
     sysup
   elif [ $DISTRO = "openwrt" ] && [ $SYSTEM = "turrisos" ]; then
     turris_up
+  fi
+  elif [ $DISTRO = "termux" ]; then
+    raspberry_pi_os_up
   fi
 fi
 

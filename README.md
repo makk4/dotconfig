@@ -84,6 +84,7 @@ Supported Systems:
 - Openwrt
 - TurrisOS
 - RasperryPiOS
+- Termux on Android
 
 Supported Package Management Systems:
 
