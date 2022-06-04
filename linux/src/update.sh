@@ -1,6 +1,6 @@
 #!/bin/zsh
-DISTRO="ubuntu"
-SYSTEM="wsl"
+DISTRO="$2"
+SYSTEM="$3"
 INSPATH="/home/$USER/.scripts"
 SYS_UPGRADE="false"
 DEV_UPGRADE="false"
@@ -103,37 +103,16 @@ raspberry_pi_os_up() {
 
 source ~/.zshrc
 
-# check if OpenWrt
-if grep -q OpenWrt /proc/version; then
-    INSPATH="/usr/bin/"
-    DISTRO="openwrt"
-    SYSTEM="turrios"
-else
-  if command -v termux-setup-storage; then  
-    echo "Termux"
-    DISTRO="termux"
-    SYSTEM="android"
-  fi
-  # check if WSL or Native Unix
-  elif grep -q Microsoft /proc/version; then
-    echo "Linux on Windows"
-    DISTRO="ubuntu"
-    SYSTEM="wsl"
-  else
-    echo "native Linux"
-    DISTRO="ubuntu"
-    SYSTEM="native"
-  fi
+if [ $DISTRO = "openwrt" ]; then
+  INSPATH="/usr/bin/"
 fi
 
 uname -a
 
-if [ -n "$1" ] && [ $1 = "all" ]; then; SYS_UPGRADE="true"; DEV_UPGRADE="true"; PLUG_UPGRADE="true"; WIN_UPGRADE="true"; REMOTE_UPGRADE="true"
-elif [ -n "$1" ] && [ $1 = "up" ]; then; SYS_UPGRADE="true"
+if [ -n "$1" ] && [ $1 = "all" ]; then; SYS_UPGRADE="true"; DEV_UPGRADE="true"; PLUG_UPGRADE="true";
 elif [ -n "$1" ] && [ $1 = "update" ]; then; SYS_UPGRADE="true"
 elif [ -n "$1" ] && [ $1 = "dev" ]; then; DEV_UPGRADE="true"
 elif [ -n "$1" ] && [ $1 = "plug" ]; then; PLUG_UPGRADE="true"
-elif [ -n "$1" ] && [ $1 = "win" ]; then; WIN_UPGRADE="true"
 elif [ -n "$1" ]; then; echo "Error: \"$1\" command not found"; exit 1
 fi
 

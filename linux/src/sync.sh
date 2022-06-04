@@ -2,8 +2,8 @@
 
 source  $HOME/.dotconfig
 
-DISTRO="ubuntu"
-SYSTEM="wsl"
+DISTRO="$2"
+SYSTEM="$3"
 DOTFILES_PATH="${HOME}/.dotfiles"
 SCRIPTS_PATH="${HOME}/.scripts"
 INSTALL_PATH="/usr/local/bin/"
@@ -33,22 +33,6 @@ push() {
 #######################################################################
 
 source ~/.zshrc
-
-# check if OpenWrt
-if grep -q OpenWrt /proc/version; then
-    DISTRO="openwrt"
-    INSPATH="/usr/bin/"
-    SYSTEM="turrios"
-else
-  # check if WSL or Native Unix
-  if grep -q Microsoft /proc/version; then
-    echo "Linux on Windows"
-    SYSTEM="wsl"
-  else
-    echo "native Linux"
-    SYSTEM="native"
-  fi
-fi
 
 uname -a
 
