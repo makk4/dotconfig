@@ -1,4 +1,4 @@
-git clone --single-branch --branch ubuntu --separate-git-dir=$HOME/.dotfiles git@github.com:name/dotfiles.git tmpdotfiles
+git clone --single-branch --branch ubuntu --separate-git-dir=$HOME/.dotfiles "$($arg0)" tmpdotfiles #TODO read git source and path from config file
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 Remove-Item tmpdotfiles
 

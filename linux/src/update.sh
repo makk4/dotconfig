@@ -98,8 +98,8 @@ plug_up() {
 
 dotconfig_up() {
   echo "update dotconfig..."
-  git clone git@github.com:makk4/dotfiles.git
-  ./install.sh
+  git clone git@github.com:makk4/dotconfig.git $HOME/dotconfig
+  $HOME/dotconfig/install.sh
 }
 
 #######################################################################
