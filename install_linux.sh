@@ -14,4 +14,7 @@ else
     echo "branch=main" > $HOME/.dotconfig
 fi
 
+echo "cloning git repository"
+./linux/src/bootstrap.sh
+
 exit 0

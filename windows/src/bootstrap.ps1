@@ -3,3 +3,5 @@ rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 Remove-Item tmpdotfiles
 
 /bash/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME' config status.showUntrackedFiles no
+
+exit 0

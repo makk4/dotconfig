@@ -31,18 +31,20 @@ function Help
     Write-Host "update      Update system"
 }
 
-#  Main
+#######################################################################
+#                            MAIN                                     #
+#######################################################################
 
 if (-not ([string]::IsNullOrEmpty($Command)))
 {
     if ("$($Command))" -like "up*")
     {
         Intro
-        ."$HOME\Dotcofig\update.ps1"
+        ."$HOME\Dotconfig\update.ps1"
     }
     elseif ("$($Command)" -like "sync*")
     {
-        ."$HOME\Dotcofig\sync.ps1" "$($arg0)" "$($arg1)" "$($arg2)"
+        ."$HOME\Dotconfig\sync.ps1" "$($arg0)" "$($arg1)" "$($arg2)"
     }
     elseif ("$($Command)" -like "help*") {
         Intro
