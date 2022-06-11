@@ -1,5 +1,5 @@
 #!/bin/bash
-source  $HOME/.dotconfig/config
+source  $HOME/.dotfilesconfig
 
 DISTRO="$2"
 SYSTEM="$3"

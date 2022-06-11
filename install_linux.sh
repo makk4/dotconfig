@@ -7,13 +7,13 @@ cp -r * $HOME/.dotconfig
 
 read -p "Enter git address from an exiting git repository: " gitsource
 ./linux/src/bootstrap.sh "$gitsource"
-echo "git=$gitsource" > $HOME/.dotconfig/config
+echo "git=$gitsource" > $HOME/.dotfilesconfig
 
 read -p "Enter branch name, leaf empty for main: " branch
 if [ "$branch" != "" ]; then
-    echo "branch=$branch" > $HOME/.dotconfig/config
+    echo "branch=$branch" > $HOME/.dotfilesconfig
 else
-    echo "branch=main" > $HOME/.dotconfig/config
+    echo "branch=main" > $HOME/.dotfilesconfig
 fi
 
 echo "add aliase"

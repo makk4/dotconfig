@@ -39,10 +39,10 @@ fi
 
 if [ ! -z "$1" ]; then 
   if [ $1 = "sync" ]; then
-    source "$HOME/.scripts/src/sync.sh" $2 $DISTRO $SYSTEM
+    source "$HOME/.dotconfig/linux/src/sync.sh" $2 $DISTRO $SYSTEM
   fi
   if [ $1 = "update" ] || [ $1 = "up" ]; then
-    source "$HOME/.scripts/src/update.sh" $2 $DISTRO $SYSTEM
+    source "$HOME/.dotconfig/linux/src/update.sh" $2 $DISTRO $SYSTEM
   fi
 else
   echo "Usage: dotconfig <command> <option>"
