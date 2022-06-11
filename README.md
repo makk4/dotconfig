@@ -1,5 +1,7 @@
 # Dot Config
 
+![example workflow](https://github.com/makk4/dotconfig/actions/workflows/powershell.yml/badge.svg)
+
 Sync your personal config files with git.
 
 ```bash
@@ -12,7 +14,6 @@ Sync your personal config files with git.
 Usage: dotconfig <command> <option>
 
 Commands:
-backup      Backup files
 sync        Sync dotflies
 update      Update system
 ```

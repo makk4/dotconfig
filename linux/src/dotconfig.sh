@@ -48,7 +48,6 @@ else
   echo "Usage: dotconfig <command> <option>"
   echo ""
   echo "Commands:"
-  echo "help        Show this screen"
   echo "sync        Sync dotflies"
   echo "update      Update system"
 fi
