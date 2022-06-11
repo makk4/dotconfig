@@ -11,14 +11,6 @@ ln -s $HOME/.scripts/src/dotconfig.sh $INSPATH
 
 chmod +x $HOME/.scripts/src/dotconfig.sh
 
-touch $HOME/.dotconfig
-
-if [ -n "$1" ] && [ $1 = "fresh" ]; then;
-    echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc
-    FILE=$HOME/.zshrc
-    if test -f "$FILE"; then
-        echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc
-    fi
-fi
+touch $HOME/.dotconfig/config
 
 exit 0
