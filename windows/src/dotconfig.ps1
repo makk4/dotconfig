@@ -40,11 +40,11 @@ if (-not ([string]::IsNullOrEmpty($Command)))
     if ("$($Command))" -like "up*")
     {
         Intro
-        ."$HOME\Dotconfig\update.ps1"
+        ."$HOME\Dotconfig\windows\src\update.ps1"
     }
     elseif ("$($Command)" -like "sync*")
     {
-        ."$HOME\Dotconfig\sync.ps1" "$($arg0)" "$($arg1)" "$($arg2)"
+        ."$HOME\Dotconfig\windows\src\sync.ps1" "$($arg0)" "$($arg1)" "$($arg2)"
     }
     elseif ("$($Command)" -like "help*") {
         Intro
