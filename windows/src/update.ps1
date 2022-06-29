@@ -12,8 +12,9 @@ Write-Host "Update WSL Kernel..." -ForegroundColor Cyan
 wsl --update
 wsl --shutdown
 
-git clone git@github.com:makk4/dotconfig.git $HOME\dotconfig
-."$HOME\dotconfig\install.ps1"
+Write-Host "Update DotConfig..." -ForegroundColor Cyan
+Set-Location $HOME\dotconfig\
+git pull
 
 Write-Host "Refresh powershell..." -ForegroundColor Cyan
 refreshenv

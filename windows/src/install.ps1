@@ -1,10 +1,8 @@
-$INSPATH = "$HOME\Dotconfig"
+$INSPATH = "$HOME\dotconfig"
 
 #######################################################################
 #                            MAIN                                     #
 #######################################################################
-
-Copy-Item -Path "windows\src\*" -Destination "$INSPATH\" -Recurse
 
 Copy-Item -Path "*" -Destination "$INSPATH" -Recurse
 

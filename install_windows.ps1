@@ -1,5 +1,4 @@
 $DOCUMENTS = [Environment]::GetFolderPath("MyDocuments")
-$INSPATH = "$HOME\Dotconfig"
 
 $contentToAdd = @"
 
@@ -18,15 +17,17 @@ function get-dotfiles ()
 "@
 
 Write-Host "Install Scripts"
-."windows\src\install.ps1" fresh
+."windows\src\install.ps1"
 
 Write-Host "cloning git repository"
 ."windows\src\bootstrap.ps1"
 
 Write-Host "add aliase"
 Add-Content "$DOCUMENTS\PowerShell\Microsoft.PowerShell_profile.ps1" $contentToAdd
-"Set-Alias dotconfig '$INSPATH\dotconfig.ps1'" >> $DOCUMENTS\PowerShell\Microsoft.PowerShell_profile.ps1
+"Set-Alias dotconfig '$HOME\dotconfig\windows\src\dotconfig.ps1'" >> $DOCUMENTS\PowerShell\Microsoft.PowerShell_profile.ps1
 "Set-Alias dotfiles get-dotfiles" >> $DOCUMENTS\PowerShell\Microsoft.PowerShell_profile.ps1
+
 #TODO read git source and path into config file
 #TODO run bootstrap
+
 exit 0

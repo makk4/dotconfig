@@ -27,6 +27,7 @@ git clone git@github.com:makk4/dotconfig.git
 Ubuntu or Ubuntu WSL
 
 ```
+chmod +x install_linux.sh
 ./install_linux.sh
 ```
 
