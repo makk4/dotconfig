@@ -11,9 +11,9 @@ echo "git=$gitsource" > $HOME/.dotfilesconfig
 
 read -p "Enter branch name, leaf empty for main: " branch
 if [ "$branch" != "" ]; then
-    echo "branch=$branch" > $HOME/.dotfilesconfig
+    echo "branch=$branch" >> $HOME/.dotfilesconfig
 else
-    echo "branch=main" > $HOME/.dotfilesconfig
+    echo "branch=main" >> $HOME/.dotfilesconfig
 fi
 
 echo "add aliase"
