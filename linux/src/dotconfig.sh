@@ -3,10 +3,10 @@
 logostring="       __      __  _____ __         \n  ____/ /___  / /_/ __(_) /__  _____\n / __  / __ \/ __/ /_/ / / _ \/ ___/\n/ /_/ / /_/ / /_/ __/ / /  __(__  ) \n\__,_/\____/\__/_/ /_/_/\___/____/  \n"
 
 lolcat=$(which lolcat)
-if [ "$lolcat" != "lolcat not found" ]; then
-  echo "$logostring" | /usr/games/lolcat
-else
+if [ "$lolcat" == "" ]; then
   echo "$logostring"
+else
+  echo "$logostring" | /usr/games/lolcat
 fi
 
 # check if OpenWrt
@@ -20,7 +20,6 @@ else
     echo "Termux"
     DISTRO="termux"
     SYSTEM="android"
-  fi
   # check if WSL or Native Unix
   elif grep -q Microsoft /proc/version; then
     echo "Linux on Windows"
