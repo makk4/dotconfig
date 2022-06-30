@@ -2,7 +2,7 @@
 
 echo "installing scripts"
 mkdir $HOME/.dotconfig
-cp -r * $HOME/.dotconfig
+cp -a . $HOME/.dotconfig/
 ./linux/src/install.sh
 
 read -p "Enter git address from an exiting git repository: " gitsource
