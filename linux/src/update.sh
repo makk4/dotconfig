@@ -15,7 +15,7 @@ ubuntu_up() {
   sudo apt autoremove -y
   # snap
   snap_installed="$(which snap)"
-  if [[ -n $snap_installed ]]
+  if [[ -n $snap_installed ]]; then
     echo "update snap apps..."
     sudo snap refresh
   fi

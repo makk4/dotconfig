@@ -11,25 +11,23 @@ fi
 
 # check if OpenWrt
 if grep -q OpenWrt /proc/version; then
-    INSPATH="/usr/bin/"
-    DISTRO="openwrt"
-    SYSTEM="turrios"
+  INSPATH="/usr/bin/"
+  DISTRO="openwrt"
+  SYSTEM="turrios"
+# check if Termux
+elif command -v termux-setup-storage; then  
+  echo "Termux"
+  DISTRO="termux"
+  SYSTEM="android"
+# check if WSL or Native Unix
+elif grep -q Microsoft /proc/version; then
+  echo "Linux on Windows"
+  DISTRO="ubuntu"
+  SYSTEM="wsl"
 else
-  # check if Termux
-  if command -v termux-setup-storage; then  
-    echo "Termux"
-    DISTRO="termux"
-    SYSTEM="android"
-  # check if WSL or Native Unix
-  elif grep -q Microsoft /proc/version; then
-    echo "Linux on Windows"
-    DISTRO="ubuntu"
-    SYSTEM="wsl"
-  else
-    echo "native Linux"
-    DISTRO="ubuntu"
-    SYSTEM="native"
-  fi
+  echo "native Linux"
+  DISTRO="ubuntu"
+  SYSTEM="native"
 fi
 
 #######################################################################
