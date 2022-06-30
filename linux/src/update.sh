@@ -109,11 +109,14 @@ dotconfig_up() {
 #                             MAIN                                    #
 #######################################################################
 
-source ~/.zshrc
+FILE=$HOME/.zshrc
+if test -f "$FILE"; then
+    source $HOME/.zshrc
+fi
 
 uname -a
 
-if [ -n "$1" ] && [ $1 = "all" ]; then; SYS_UPGRADE="true"; DEV_UPGRADE="true"; PLUG_UPGRADE="true";
+if [ -n "$1" ] && [ $1 = "all" ]; then; SYS_UPGRADE="true"; DEV_UPGRADE="true"; PLUG_UPGRADE="true"
 elif [ -n "$1" ] && [ $1 = "update" ]; then; SYS_UPGRADE="true"
 elif [ -n "$1" ] && [ $1 = "dev" ]; then; DEV_UPGRADE="true"
 elif [ -n "$1" ] && [ $1 = "plug" ]; then; PLUG_UPGRADE="true"
