@@ -126,9 +126,6 @@ elif [ -n "$1" ] && [ $1 = "dev" ]; then
   DEV_UPGRADE="true"
 elif [ -n "$1" ] && [ $1 = "plug" ]; then
   PLUG_UPGRADE="true"
-elif [ -n "$1" ]; then
-  echo "Error: \"$1\" command not found"
-  exit 1
 fi
 
 if [ $SYS_UPGRADE = "true" ]; then
