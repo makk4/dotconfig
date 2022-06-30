@@ -134,7 +134,6 @@ if [ $SYS_UPGRADE = "true" ]; then
     ubuntu_up
   elif [ $DISTRO = "openwrt" ] && [ $SYSTEM = "turrisos" ]; then
     turrisos_up
-  fi
   elif [ $DISTRO = "termux" ]; then
     raspberrypios_up
   fi
