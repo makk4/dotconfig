@@ -116,11 +116,19 @@ fi
 
 uname -a
 
-if [ -n "$1" ] && [ $1 = "all" ]; then; SYS_UPGRADE="true"; DEV_UPGRADE="true"; PLUG_UPGRADE="true"
-elif [ -n "$1" ] && [ $1 = "update" ]; then; SYS_UPGRADE="true"
-elif [ -n "$1" ] && [ $1 = "dev" ]; then; DEV_UPGRADE="true"
-elif [ -n "$1" ] && [ $1 = "plug" ]; then; PLUG_UPGRADE="true"
-elif [ -n "$1" ]; then; echo "Error: \"$1\" command not found"; exit 1
+if [ -n "$1" ] && [ $1 = "all" ]; then
+  SYS_UPGRADE="true"
+  DEV_UPGRADE="true"
+  PLUG_UPGRADE="true"
+elif [ -n "$1" ] && [ $1 = "update" ]; then
+  SYS_UPGRADE="true"
+elif [ -n "$1" ] && [ $1 = "dev" ]; then
+  DEV_UPGRADE="true"
+elif [ -n "$1" ] && [ $1 = "plug" ]; then
+  PLUG_UPGRADE="true"
+elif [ -n "$1" ]; then
+  echo "Error: \"$1\" command not found"
+  exit 1
 fi
 
 if [ $SYS_UPGRADE = "true" ]; then
