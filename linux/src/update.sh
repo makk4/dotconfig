@@ -22,7 +22,7 @@ ubuntu_up() {
   if [ $SYSTEM = "native" ]; then
     # flatpak
     flatpak_installed="$(which flatpak)"
-    if [[ -n $flatpak_installed ]]
+    if [[ -n $flatpak_installed ]]; then
       echo "update flatpak apps..."
       flatpak update
     fi
@@ -60,7 +60,8 @@ dev_up() {
     read "PIP?Continue update pip packages? [y/n]?"
     if [ $PIP = "y" ]; then
       if [ $DISTRO = "ubuntu" ]; then
-          python3 -m pip install --user --upgrade pip
+        python3 -m pip install --user --upgrade pip
+      fi
     fi
   fi
   # npm
@@ -99,7 +100,7 @@ plug_up() {
 dotconfig_up() {
   echo "update dotconfig..."
   cd $HOME/.dotconfig
-   chmod -x $HOME/.dotconfig/linux/src/dotconfig.sh
+  chmod -x $HOME/.dotconfig/linux/src/dotconfig.sh
   git pull
   chmod +x $HOME/.dotconfig/linux/src/dotconfig.sh
 }
