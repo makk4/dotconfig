@@ -11,5 +11,6 @@ fi
 sudo ln -s $HOME/.dotconfig/linux/src/dotconfig.sh $INSPATH
 chmod +x $HOME/.dotconfig/linux/src/dotconfig.sh
 touch $HOME/.dotfilesconfig
+chmod +x $HOME/.dotconfig/linux/src/bootstrap.sh
 
 exit 0
