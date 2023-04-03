@@ -10,7 +10,7 @@ BRANCH=$branch
 
 pull() {
   echo "pull dotfiles..."
-  dotfiles pull origin ${BRANCH}
+  '/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"' pull origin ${BRANCH}
 }
 
 push() {
@@ -18,7 +18,7 @@ push() {
   default=$(dotconfig rev-parse --verify origin/${BRANCH})
   if [ "$head" != "$default" ]; then
     echo "push dotfiles..."
-    dotfiles push origin ${BRANCH}
+    '/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"' push origin ${BRANCH}
   fi
 }
 
@@ -29,12 +29,10 @@ push() {
 
 uname -a
 
-alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
-
 dotconfig diff --quiet && dotconfig diff --cached --quiet
 if ! [ $? -eq 0 ]; then
   echo "commit dotfiles..."
-  dotfiles commit -S -am "sync"
+  '/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"' commit -S -am "sync"
 fi
 
 if [ ! -z "$1" ]; then
