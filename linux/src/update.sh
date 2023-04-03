@@ -109,11 +109,6 @@ dotconfig_up() {
 #                             MAIN                                    #
 #######################################################################
 
-FILE=$HOME/.zshrc
-if test -f "$FILE"; then
-    source $HOME/.zshrc
-fi
-
 uname -a
 
 if [ -n "$1" ] && [ $1 = "all" ]; then
