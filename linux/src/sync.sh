@@ -8,9 +8,6 @@ SCRIPTS_PATH="${HOME}/.scripts"
 INSTALL_PATH="/usr/local/bin/"
 BRANCH=$branch
 
-alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
-alias winconfig='/usr/bin/git --git-dir="/mnt/c/Users/amake/.dotfiles" --work-tree="/mnt/c/Users/amake"'
-
 pull() {
   echo "pull dotfiles..."
   dotfiles pull origin ${BRANCH}
@@ -31,6 +28,8 @@ push() {
 #######################################################################
 
 uname -a
+
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
 dotconfig diff --quiet && dotconfig diff --cached --quiet
 if ! [ $? -eq 0 ]; then
