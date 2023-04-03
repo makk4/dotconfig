@@ -14,7 +14,6 @@ alias winconfig='/usr/bin/git --git-dir="/mnt/c/Users/amake/.dotfiles" --work-tr
 pull() {
   echo "pull dotfiles..."
   dotfiles pull origin ${BRANCH}
-  source ~/.zshrc
 }
 
 push() {
@@ -30,8 +29,6 @@ push() {
 #######################################################################
 #                            MAIN                                     #
 #######################################################################
-
-source ~/.zshrc
 
 uname -a
 
